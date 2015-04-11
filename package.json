@@ -14,7 +14,7 @@
     "postinstall": "cp ./node_modules/normalize.css/normalize.css ./node_modules/normalize.css/normalize.scss",
     "clean": "trash ./www",
     "compile": "npm run clean && harp compile",
-    "deploy": "npm run compile && surge ./www --build"
+    "deploy": "npm run compile && surge ./www"
   },
   "devDependencies": {
     "normalize-opentype.css": "^0.2.4",
