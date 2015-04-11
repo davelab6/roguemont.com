@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+
+# Logs
+logs
+*.log*
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+components
+bower_components
+./js/vendor/type-tester.js
+
+# Compile directories
+www/
+
+# Private
+fonts/*

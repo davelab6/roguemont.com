@@ -1,0 +1,183 @@
+// Type Tester
+// ===========
+
+// Variables
+// ---------
+
+$wf-loading-delay: 0.15s;
+
+// Base
+// ----
+
+.typeTester {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // iOS
+  -webkit-tap-highloght-color: transparent;   // Android
+  font-size: 1rem;
+  &, * {
+    box-sizing: border-box;
+    &:before,
+    &:after {
+      box-sizing: border-box;
+    }
+  }
+
+  form {
+    margin: 0;
+    padding: 0;
+  }
+
+  fieldset, input {
+    margin: 0;
+  }
+  input[type="range"] {
+    padding: 0;
+  }
+  pre {
+    font-family: inherit;
+    margin: 0;
+  }
+}
+
+.typeTester-controls {
+  user-select: none;
+}
+
+.typeTester-select {
+  margin: 0;
+}
+
+.typeTester-checkbox,
+.typeTester-checkmark {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  cursor: default;
+}
+
+.typeTester-specimen {
+  line-height: 1.3;
+  position: relative;
+  width: 100%;
+  text-align: left;
+
+  // Bram Stein ☞ http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+.typeTester-specimen--input,
+.typeTester-specimen--output {
+  font-size: 5em;
+  -webkit-user-modify: read-write-plaintext-only;
+  -moz-user-modify: read-write-plaintext-only;
+  -ms-user-modify: read-write-plaintext-only;
+  user-modify: read-write-plaintext-only;
+  outline-color: transparent;
+  outline-style: none;
+  word-wrap: normal;
+  mark {
+    display: inline;
+    white-space: nowrap;
+  }
+  .wf-loading & {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .wf-active & {
+    opacity: 1;
+    visibility: visible;
+    display: inherit;
+    transition: opacity $wf-loading-delay ease-in-out;
+  }
+  b, strong, i, em, dfn, small, code {
+    display: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    background: inherit;
+  }
+  sub, sup {
+    // TODO better
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  a {
+    // TODO
+  }
+}
+
+.typeTester-specimen--output {
+  color: transparent;
+  speak: none;
+}
+
+.typeTester-specimen--input {
+}
+
+.typeTester-specimen--staging {
+  user-select: none;
+  display: none;
+  visibility: hidden;
+  speak: none;
+}
+
+
+// Layout
+// ------
+
+.typeTester-specimen {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.typeTester-specimen--input {
+  align-self: flex-start;
+  top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.typeTester-specimen--output {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+// Module
+// ------
+
+// State
+// -----
+
+// Kind of an anti-pattern to style on class
+// Might also need to generate it based on
+// the class that the typeTester is appled to
+.js-typeTester {
+  opacity: 1.0;
+  .js & {
+    opacity: 0;
+  }
+  .js &.is-ready {
+    opacity: 1.0;
+    transition: opacity 0.25s ease-out;
+  }
+}
+
+// Theme
+// -----
+
+@import "roguemont";

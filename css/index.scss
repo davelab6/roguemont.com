@@ -1,0 +1,24 @@
+@import "type-tester/index";
+
+body {
+  margin: 0;
+  background-color: black;
+  color: #CCC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roguemont";
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 50em;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+// Shame
+
+.typeTester-specimen {
+  text-transform: uppercase;
+}
