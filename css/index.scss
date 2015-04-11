@@ -10,16 +10,59 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roguemont";
-  text-transform: uppercase;
 }
 
 .container {
   max-width: 50em;
   margin: 0 auto;
   padding: 1em;
+  font-family: "Roguemont";
+}
+
+/// @name Font weight helpers
+///
+/// Utility classes to change the font weights easily
+/// within the type specimens (not the type tester).
+///
+/// @author Kenneth Ormandy
+
+.font-weight--thin {
+  font-weight: 200;
+}
+
+.font-weight--light {
+  font-weight: 300;
+}
+
+.font-weight--regular {
+  font-weight: 400;
+}
+
+.font-weight--medium {
+  font-weight: 500;
+}
+
+.font-weight--semibold {
+  font-weight: 600;
+}
+
+.font-weight--bold {
+  font-weight: 700;
 }
 
 // Shame
+// These should get removed once the typeface
+// properly changes lowercase to uppercase or
+// actually has a lowecase.
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+
+.container {
+  text-transform: uppercase;
+}
 
 .typeTester-specimen {
   text-transform: uppercase;
